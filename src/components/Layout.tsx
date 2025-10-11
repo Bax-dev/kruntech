@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import ScrollToTop from "./ScrollToTop";
 import CookieConsent from "./CookieConsent";
+import RouteScrollToTop from "./RouteScrollToTop";
 
 interface LayoutProps {
   children: ReactNode;
@@ -11,6 +12,7 @@ interface LayoutProps {
 const Layout = ({ children }: LayoutProps) => {
   return (
     <div className="min-h-screen flex flex-col">
+      <RouteScrollToTop />
       <Navbar />
       <main className="flex-1">{children}</main>
       <Footer />

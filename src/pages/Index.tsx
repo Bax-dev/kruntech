@@ -13,6 +13,8 @@ import {
   GraduationCap,
   Factory,
   Gamepad2,
+  Settings,
+  Code,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -32,6 +34,18 @@ const Index = () => {
       title: "Managed Services",
       description:
         "24/7 managed cloud services with expert support and monitoring.",
+    },
+    {
+      icon: Settings,
+      title: "Business Transformation",
+      description:
+        "Implement ERP and business productivity solutions to streamline operations and drive growth.",
+    },
+    {
+      icon: Code,
+      title: "Software Development",
+      description:
+        "Custom software solutions and application development tailored to your specific business requirements.",
     },
     {
       icon: Shield,
@@ -107,7 +121,7 @@ const Index = () => {
 
   return (
     <Layout>
-      <section className="relative min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 overflow-hidden">
+      <section className="relative min-h-screen bg-gradient-to-br from-red-900 via-red-800 to-red-900 overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute top-20 left-10 w-72 h-72 bg-white/5 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-20 right-10 w-96 h-96 bg-gray-400/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
@@ -146,17 +160,17 @@ const Index = () => {
                 <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
                   Scale your business with enterprise-grade cloud solutions that
                   deliver
-                  <span className="font-semibold" style={{ color: "#800020" }}>
+                  <span className="font-semibold text-white">
                     {" "}
                     99.99% uptime
                   </span>
                   ,
-                  <span className="font-semibold" style={{ color: "#800020" }}>
+                  <span className="font-semibold text-white">
                     {" "}
                     advanced security
                   </span>
                   , and
-                  <span className="font-semibold" style={{ color: "#800020" }}>
+                  <span className="font-semibold text-white">
                     {" "}
                     seamless scalability
                   </span>
@@ -446,7 +460,7 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             {services.map((service, index) => (
               <div key={index} className="group relative">
                 <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-gray-200 relative overflow-hidden">

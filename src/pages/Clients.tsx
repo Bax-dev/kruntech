@@ -55,9 +55,9 @@ const Clients = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
             {[
-              { number: "500+", label: "Enterprise Clients" },
-              { number: "50+", label: "Countries" },
-              { number: "1M+", label: "Active Users" },
+              { number: "120+", label: "Enterprise Clients" },
+              { number: "25+", label: "Countries" },
+              { number: "150K+", label: "Active Users" },
               { number: "99.99%", label: "Uptime" },
             ].map((stat, index) => (
               <div key={index} className="text-center">
