@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Cloud, Server, Shield, Zap, Database, Network, Lock, BarChart, Users } from "lucide-react";
+import { Cloud, Server, Shield, Zap, Database, Network, Lock, BarChart, Users, Settings, Code } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Layout from "@/components/Layout";
@@ -19,6 +19,20 @@ const Services = () => {
       title: "Managed Services",
       description: "Focus on your business while we handle your cloud operations. Our experts manage, monitor, and optimize your infrastructure 24/7.",
       features: ["Proactive monitoring", "Automated backups", "Performance tuning", "Incident response"],
+    },
+    {
+      id: "business-transformation",
+      icon: Settings,
+      title: "Business Transformation",
+      description: "Implement ERP and business productivity solutions to streamline operations, improve efficiency, and drive digital transformation.",
+      features: ["ERP Implementation", "Process Automation", "Digital Workflows", "Change Management"],
+    },
+    {
+      id: "software-development",
+      icon: Code,
+      title: "Software Development",
+      description: "Custom software solutions and application development tailored to your specific business requirements and industry needs.",
+      features: ["Custom Applications", "API Development", "Mobile Apps", "Legacy Modernization"],
     },
     {
       id: "security-compliance",
