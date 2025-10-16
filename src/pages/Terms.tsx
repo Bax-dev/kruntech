@@ -108,7 +108,7 @@ const Terms = () => {
                 <h2 className="text-3xl font-bold mb-4">Contact Information</h2>
                 <p className="text-muted-foreground leading-relaxed">
                   If you have any questions about these Terms & Conditions, please contact us at:<br />
-                  Email: legal@kruntech.com<br />
+                  Email:  info@kruntech.com<br />
                   Phone: +2348031371520
                 </p>
               </div>

@@ -133,7 +133,7 @@ const Privacy = () => {
                 <h2 className="text-3xl font-bold mb-4">12. Contact Us</h2>
                 <p className="text-muted-foreground leading-relaxed">
                   If you have questions about this Privacy Policy or our privacy practices, please contact us at:<br />
-                  Email: privacy@kruntech.com<br />
+                  Email:  info@kruntech.com<br />
                   Phone: +2348031371520<br />
                   Address: 123 Cloud Street, Tech City, TC 12345
                 </p>
