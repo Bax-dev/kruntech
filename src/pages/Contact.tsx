@@ -53,7 +53,7 @@ const Contact = () => {
 
   return (
     <Layout>
-      {/* Hero Section */}
+      
       <section className="pt-32 pb-16 gradient-primary">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-5xl md:text-6xl font-bold text-primary-foreground mb-6">
@@ -65,7 +65,6 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Contact Form & Info */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">

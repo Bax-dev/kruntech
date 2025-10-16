@@ -29,22 +29,19 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white/95 backdrop-blur-md shadow-card" : "bg-black/20 backdrop-blur-sm"
+        isScrolled ? "bg-white/95 backdrop-blur-md shadow-card" : "bg-white/95 backdrop-blur-md shadow-card"
       }`}
     >
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+       <div className="container mx-auto px-4">
+         <div className="flex items-center justify-between h-24">
         
-          {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2 group">
-            <div className="w-20 h-16 bg-gradient-to-br from-white to-gray-100 rounded-full shadow-xl border-2 border-gray-200 flex items-center justify-center transition-transform group-hover:scale-110 group-hover:shadow-2xl">
-              <img 
-                src="/logo.png" 
-                alt="Krun Tech Logo" 
-                className="h-16 w-auto object-contain"
-              />
-            </div>
-          </Link>
+           <Link to="/" className="flex items-center space-x-2 group">
+               <img 
+                 src="/logo.png" 
+                 alt="Krun Tech Logo" 
+                 className="h-[10.5em] w-auto object-contain drop-shadow-xl filter brightness-110 contrast-125"
+               />
+           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-1">
@@ -52,11 +49,11 @@ const Navbar = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`px-4 py-2 rounded-lg font-medium transition-all ${
-                  isActive(link.path)
-                    ? "text-white"
-                    : isScrolled ? "text-black hover:bg-gray-100" : "text-white hover:bg-white/10"
-                }`}
+                 className={`px-4 py-2 rounded-lg font-medium transition-all ${
+                   isActive(link.path)
+                     ? "text-white"
+                     : "text-[#800020] hover:bg-gray-100 hover:text-[#800020]"
+                 }`}
                 style={isActive(link.path) ? {backgroundColor: '#800020'} : {}}
               >
                 {link.name}
@@ -72,16 +69,16 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            className="md:hidden p-2 rounded-lg hover:bg-white/10 transition-colors"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? (
-              <X className={`w-6 h-6 ${isScrolled ? "text-black" : "text-white"}`} />
-            ) : (
-              <Menu className={`w-6 h-6 ${isScrolled ? "text-black" : "text-white"}`} />
-            )}
-          </button>
+           <button
+             className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+           >
+             {isMobileMenuOpen ? (
+               <X className="w-6 h-6 text-[#800020]" />
+             ) : (
+               <Menu className="w-6 h-6 text-[#800020]" />
+             )}
+           </button>
         </div>
 
         {/* Mobile Menu */}
@@ -91,11 +88,11 @@ const Navbar = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`block px-4 py-3 rounded-lg font-medium transition-all ${
-                  isActive(link.path)
-                    ? "text-white"
-                    : isScrolled ? "text-black hover:bg-gray-100" : "text-white hover:bg-white/10"
-                }`}
+                 className={`block px-4 py-3 rounded-lg font-medium transition-all ${
+                   isActive(link.path)
+                     ? "text-white"
+                     : "text-[#800020] hover:bg-gray-100 hover:text-[#800020]"
+                 }`}
                 style={isActive(link.path) ? {backgroundColor: '#800020'} : {}}
                 onClick={() => setIsMobileMenuOpen(false)}
               >

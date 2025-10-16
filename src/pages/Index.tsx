@@ -71,15 +71,16 @@ const Index = () => {
   // Carousel state
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-  
+
   // Testimonials carousel state
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
-  const [isTestimonialAutoPlaying, setIsTestimonialAutoPlaying] = useState(true);
+  const [isTestimonialAutoPlaying, setIsTestimonialAutoPlaying] =
+    useState(true);
 
   // Auto-play carousel
   useEffect(() => {
     if (!isAutoPlaying) return;
-    
+
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % 3);
     }, 4000);
@@ -90,7 +91,7 @@ const Index = () => {
   // Auto-play testimonials
   useEffect(() => {
     if (!isTestimonialAutoPlaying) return;
-    
+
     const interval = setInterval(() => {
       setCurrentTestimonial((prev) => (prev + 1) % 6);
     }, 5000);
@@ -99,9 +100,9 @@ const Index = () => {
   }, [isTestimonialAutoPlaying]);
 
   // Carousel functions
-  const scrollCarousel = (direction: 'left' | 'right') => {
+  const scrollCarousel = (direction: "left" | "right") => {
     setIsAutoPlaying(false);
-    if (direction === 'left') {
+    if (direction === "left") {
       setCurrentSlide((prev) => (prev - 1 + 3) % 3);
     } else {
       setCurrentSlide((prev) => (prev + 1) % 3);
@@ -121,7 +122,7 @@ const Index = () => {
 
   return (
     <Layout>
-      <section className="relative min-h-screen bg-gradient-to-br from-red-900 via-red-800 to-red-900 overflow-hidden">
+      <section className="relative min-h-screen bg-gradient-to-br from-[#800020] via-[#a00030] to-[#800020] overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute top-20 left-10 w-72 h-72 bg-white/5 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-20 right-10 w-96 h-96 bg-gray-400/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
@@ -133,8 +134,7 @@ const Index = () => {
           <div className="absolute top-48 right-1/3 w-6 h-6 bg-gray-300/30 rounded-full animate-bounce delay-500"></div>
           <div className="absolute bottom-32 left-1/3 w-3 h-3 bg-white/25 rotate-12 animate-bounce delay-1000"></div>
           <div className="absolute bottom-48 right-1/4 w-5 h-5 bg-gray-400/30 rounded-full animate-bounce delay-1500"></div>
-          
-          {/* Decorative Arc Elements */}
+
           <div className="absolute top-20 right-20 w-32 h-32 border-2 border-white/10 rounded-full animate-spin-slow"></div>
           <div className="absolute bottom-32 left-20 w-24 h-24 border-2 border-white/15 rounded-full animate-spin-slow delay-1000"></div>
           <div className="absolute top-1/3 right-1/4 w-16 h-16 border border-white/20 rounded-full animate-pulse"></div>
@@ -155,7 +155,7 @@ const Index = () => {
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight">
                   Transform Your
                   <span className="block text-white">Digital Future</span>
-          </h1>
+                </h1>
 
                 <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
                   Scale your business with enterprise-grade cloud solutions that
@@ -188,10 +188,11 @@ const Index = () => {
                     boxShadow: "0 25px 50px -12px rgba(128, 0, 32, 0.25)",
                   }}
                 >
-              <Link to="/contact">
-                    Start Your Journey <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </Button>
+                  <Link to="/contact">
+                    Start Your Journey
+                     <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
+                </Button>
               </div>
 
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 pt-8">
@@ -317,47 +318,65 @@ const Index = () => {
             <div className="space-y-8">
               <div className="space-y-6">
                 <div className="inline-flex items-center px-4 py-2 bg-gray-100 rounded-full">
-                  <div className="w-2 h-2 rounded-full mr-2" style={{backgroundColor: '#800020'}}></div>
-                  <span className="text-gray-600 text-sm font-medium">About Krun Tech</span>
+                  <div
+                    className="w-2 h-2 rounded-full mr-2"
+                    style={{ backgroundColor: "#800020" }}
+                  ></div>
+                  <span className="text-gray-600 text-sm font-medium">
+                    About Krun Tech
+                  </span>
                 </div>
-                
+
                 <h2 className="text-5xl md:text-6xl font-bold text-gray-900 leading-tight">
-                  Pioneering the Future of <span style={{color: '#800020'}}>Cloud Computing</span>
+                  Pioneering the Future of{" "}
+                  <span style={{ color: "#800020" }}>Cloud Computing</span>
                 </h2>
-                
+
                 <p className="text-xl text-gray-600 leading-relaxed">
-                  Since our founding, we've been at the forefront of cloud innovation, 
-                  helping businesses transform their digital infrastructure and achieve 
-                  unprecedented growth through cutting-edge technology solutions.
+                  Since our founding, we've been at the forefront of cloud
+                  innovation, helping businesses transform their digital
+                  infrastructure and achieve unprecedented growth through
+                  cutting-edge technology solutions.
                 </p>
               </div>
 
               {/* Key Stats */}
               <div className="grid grid-cols-2 gap-8 pt-8">
                 <div className="text-center lg:text-left">
-                  <div className="text-4xl font-bold text-gray-900 mb-2">500+</div>
+                  <div className="text-4xl font-bold text-gray-900 mb-2">
+                    500+
+                  </div>
                   <div className="text-gray-600">Enterprise Clients</div>
                 </div>
                 <div className="text-center lg:text-left">
-                  <div className="text-4xl font-bold text-gray-900 mb-2">99.99%</div>
+                  <div className="text-4xl font-bold text-gray-900 mb-2">
+                    99.99%
+                  </div>
                   <div className="text-gray-600">Uptime Guarantee</div>
                 </div>
                 <div className="text-center lg:text-left">
-                  <div className="text-4xl font-bold text-gray-900 mb-2">24/7</div>
+                  <div className="text-4xl font-bold text-gray-900 mb-2">
+                    24/7
+                  </div>
                   <div className="text-gray-600">Expert Support</div>
                 </div>
                 <div className="text-center lg:text-left">
-                  <div className="text-4xl font-bold text-gray-900 mb-2">50+</div>
+                  <div className="text-4xl font-bold text-gray-900 mb-2">
+                    50+
+                  </div>
                   <div className="text-gray-600">Countries Served</div>
                 </div>
               </div>
 
               {/* Mission Statement */}
               <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Mission</h3>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                  Our Mission
+                </h3>
                 <p className="text-gray-600 leading-relaxed">
-                  To empower businesses worldwide with scalable, secure, and innovative cloud solutions 
-                  that drive digital transformation and accelerate growth in the modern digital economy.
+                  To empower businesses worldwide with scalable, secure, and
+                  innovative cloud solutions that drive digital transformation
+                  and accelerate growth in the modern digital economy.
                 </p>
               </div>
             </div>
@@ -375,51 +394,95 @@ const Index = () => {
 
                 <div className="relative z-10 space-y-6">
                   <div className="text-center">
-                    <h3 className="text-3xl font-bold text-white mb-2">Trusted by Industry Leaders</h3>
-                    <p className="text-gray-300">From startups to Fortune 500 companies</p>
+                    <h3 className="text-3xl font-bold text-white mb-2">
+                      Trusted by Industry Leaders
+                    </h3>
+                    <p className="text-gray-300">
+                      From startups to Fortune 500 companies
+                    </p>
                   </div>
 
                   {/* Feature Highlights */}
                   <div className="space-y-4">
                     <div className="flex items-center space-x-3">
-                      <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{backgroundColor: '#800020'}}>
+                      <div
+                        className="w-8 h-8 rounded-full flex items-center justify-center"
+                        style={{ backgroundColor: "#800020" }}
+                      >
                         <Shield className="w-4 h-4 text-white" />
                       </div>
-                      <span className="text-white font-medium">Enterprise-Grade Security</span>
+                      <span className="text-white font-medium">
+                        Enterprise-Grade Security
+                      </span>
                     </div>
                     <div className="flex items-center space-x-3">
-                      <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{backgroundColor: '#800020'}}>
+                      <div
+                        className="w-8 h-8 rounded-full flex items-center justify-center"
+                        style={{ backgroundColor: "#800020" }}
+                      >
                         <Zap className="w-4 h-4 text-white" />
                       </div>
-                      <span className="text-white font-medium">Lightning-Fast Performance</span>
+                      <span className="text-white font-medium">
+                        Lightning-Fast Performance
+                      </span>
                     </div>
                     <div className="flex items-center space-x-3">
-                      <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{backgroundColor: '#800020'}}>
+                      <div
+                        className="w-8 h-8 rounded-full flex items-center justify-center"
+                        style={{ backgroundColor: "#800020" }}
+                      >
                         <Cloud className="w-4 h-4 text-white" />
                       </div>
-                      <span className="text-white font-medium">Scalable Infrastructure</span>
+                      <span className="text-white font-medium">
+                        Scalable Infrastructure
+                      </span>
                     </div>
                     <div className="flex items-center space-x-3">
-                      <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{backgroundColor: '#800020'}}>
+                      <div
+                        className="w-8 h-8 rounded-full flex items-center justify-center"
+                        style={{ backgroundColor: "#800020" }}
+                      >
                         <Server className="w-4 h-4 text-white" />
                       </div>
-                      <span className="text-white font-medium">24/7 Managed Services</span>
-          </div>
-        </div>
+                      <span className="text-white font-medium">
+                        24/7 Managed Services
+                      </span>
+                    </div>
+                  </div>
 
                   {/* CTA */}
                   <div className="pt-6">
-                    <Button asChild size="lg" className="w-full text-white shadow-2xl transition-all duration-300 text-lg py-6" style={{background: 'linear-gradient(to right, #800020, #a00030)', boxShadow: '0 25px 50px -12px rgba(128, 0, 32, 0.25)'}}>
+                    <Button
+                      asChild
+                      size="lg"
+                      className="w-full text-white shadow-2xl transition-all duration-300 text-lg py-6"
+                      style={{
+                        background:
+                          "linear-gradient(to right, #800020, #a00030)",
+                        boxShadow: "0 25px 50px -12px rgba(128, 0, 32, 0.25)",
+                      }}
+                    >
                       <Link to="/contact">
-                        Learn More About Us <ArrowRight className="ml-2 h-5 w-5" />
+                        Learn More About Us{" "}
+                        <ArrowRight className="ml-2 h-5 w-5" />
                       </Link>
                     </Button>
                   </div>
                 </div>
               </div>
 
-              <div className="absolute -top-4 -right-4 w-8 h-8 rounded-full animate-pulse" style={{background: 'linear-gradient(to right, #800020, #a00030)'}}></div>
-              <div className="absolute -bottom-4 -left-4 w-6 h-6 rounded-full animate-pulse delay-1000" style={{background: 'linear-gradient(to right, #800020, #a00030)'}}></div>
+              <div
+                className="absolute -top-4 -right-4 w-8 h-8 rounded-full animate-pulse"
+                style={{
+                  background: "linear-gradient(to right, #800020, #a00030)",
+                }}
+              ></div>
+              <div
+                className="absolute -bottom-4 -left-4 w-6 h-6 rounded-full animate-pulse delay-1000"
+                style={{
+                  background: "linear-gradient(to right, #800020, #a00030)",
+                }}
+              ></div>
             </div>
           </div>
         </div>
@@ -464,10 +527,9 @@ const Index = () => {
             {services.map((service, index) => (
               <div key={index} className="group relative">
                 <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-gray-200 relative overflow-hidden">
-                  
                   <div className="relative z-10 mb-6">
-                    <div className="w-20 h-20 rounded-xl flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110 bg-red-100">
-                      <service.icon className="w-10 h-10 text-red-600" />
+                    <div className="w-20 h-20 rounded-xl flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110 bg-[#800020]/10">
+                      <service.icon className="w-10 h-10 text-[#800020]" />
                     </div>
                   </div>
 
@@ -499,7 +561,6 @@ const Index = () => {
           </div>
 
           <div className="text-center bg-gradient-to-r from-gray-900 to-black rounded-3xl p-12 relative overflow-hidden">
-        
             <div className="absolute inset-0 opacity-10">
               <div className="absolute top-10 left-10 w-20 h-20 border border-white rounded-full"></div>
               <div className="absolute bottom-10 right-10 w-16 h-16 border border-white rounded-full"></div>
@@ -526,8 +587,8 @@ const Index = () => {
                 >
                   <Link to="/contact">
                     Get Started Today <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </Button>
+                  </Link>
+                </Button>
               </div>
             </div>
           </div>
@@ -548,19 +609,19 @@ const Index = () => {
           {/* Section Header */}
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Industries We{" "}
-              <span style={{color: '#800020'}}>Serve</span>
-              </h2>
+              Industries We <span style={{ color: "#800020" }}>Serve</span>
+            </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Empowering businesses across diverse sectors with cutting-edge cloud solutions
+              Empowering businesses across diverse sectors with cutting-edge
+              cloud solutions
             </p>
           </div>
 
           {/* Industries Carousel */}
           <div className="relative">
             <div className="overflow-hidden">
-              <div 
-                className="flex transition-transform duration-500 ease-in-out" 
+              <div
+                className="flex transition-transform duration-500 ease-in-out"
                 style={{ transform: `translateX(-${currentSlide * 100}%)` }}
               >
                 {[
@@ -569,82 +630,134 @@ const Index = () => {
                     {
                       icon: Heart,
                       title: "Healthcare",
-                      description: "HIPAA-compliant cloud infrastructure for hospitals, clinics, and medical research",
-                      features: ["Patient Data Security", "Telemedicine Platforms", "Research Analytics"]
+                      description:
+                        "HIPAA-compliant cloud infrastructure for hospitals, clinics, and medical research",
+                      features: [
+                        "Patient Data Security",
+                        "Telemedicine Platforms",
+                        "Research Analytics",
+                      ],
                     },
                     {
                       icon: Building2,
                       title: "Financial Services",
-                      description: "Secure, scalable solutions for banks, fintech, and investment firms",
-                      features: ["Fraud Detection", "Real-time Trading", "Compliance Management"]
-                    }
+                      description:
+                        "Secure, scalable solutions for banks, fintech, and investment firms",
+                      features: [
+                        "Fraud Detection",
+                        "Real-time Trading",
+                        "Compliance Management",
+                      ],
+                    },
                   ],
                   // Slide 2: E-commerce & Education
                   [
                     {
                       icon: ShoppingCart,
                       title: "E-commerce",
-                      description: "High-performance platforms for online retailers and marketplaces",
-                      features: ["Scalable Infrastructure", "Payment Processing", "Inventory Management"]
+                      description:
+                        "High-performance platforms for online retailers and marketplaces",
+                      features: [
+                        "Scalable Infrastructure",
+                        "Payment Processing",
+                        "Inventory Management",
+                      ],
                     },
                     {
                       icon: GraduationCap,
                       title: "Education",
-                      description: "Cloud-based learning management systems and educational tools",
-                      features: ["Virtual Classrooms", "Student Analytics", "Content Delivery"]
-                    }
+                      description:
+                        "Cloud-based learning management systems and educational tools",
+                      features: [
+                        "Virtual Classrooms",
+                        "Student Analytics",
+                        "Content Delivery",
+                      ],
+                    },
                   ],
                   // Slide 3: Manufacturing & Gaming & Media
                   [
                     {
                       icon: Factory,
                       title: "Manufacturing",
-                      description: "IoT integration and smart factory solutions for industrial operations",
-                      features: ["Predictive Maintenance", "Supply Chain", "Quality Control"]
+                      description:
+                        "IoT integration and smart factory solutions for industrial operations",
+                      features: [
+                        "Predictive Maintenance",
+                        "Supply Chain",
+                        "Quality Control",
+                      ],
                     },
                     {
                       icon: Gamepad2,
                       title: "Gaming & Media",
-                      description: "High-performance infrastructure for gaming platforms and content delivery",
-                      features: ["Global CDN", "Real-time Gaming", "Content Streaming"]
-                    }
-                  ]
+                      description:
+                        "High-performance infrastructure for gaming platforms and content delivery",
+                      features: [
+                        "Global CDN",
+                        "Real-time Gaming",
+                        "Content Streaming",
+                      ],
+                    },
+                  ],
                 ].map((slideIndustries, slideIndex) => (
                   <div key={slideIndex} className="w-full flex-shrink-0">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                       {slideIndustries.map((industry, index) => (
-                        <div key={index} className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 p-8 h-full border border-gray-100">
+                        <div
+                          key={index}
+                          className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 p-8 h-full border border-gray-100"
+                        >
                           {/* Industry Icon */}
                           <div className="flex justify-center mb-6">
-                            <div className="w-20 h-20 rounded-full flex items-center justify-center" style={{backgroundColor: '#800020', color: 'white'}}>
+                            <div
+                              className="w-20 h-20 rounded-full flex items-center justify-center"
+                              style={{
+                                backgroundColor: "#800020",
+                                color: "white",
+                              }}
+                            >
                               <industry.icon className="w-10 h-10" />
                             </div>
                           </div>
-                          
+
                           {/* Industry Title */}
                           <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center">
                             {industry.title}
                           </h3>
-                          
+
                           {/* Description */}
                           <p className="text-gray-600 mb-6 text-center leading-relaxed">
                             {industry.description}
                           </p>
-                          
+
                           {/* Features */}
                           <div className="space-y-3">
                             {industry.features.map((feature, featureIndex) => (
-                              <div key={featureIndex} className="flex items-center space-x-3">
-                                <div className="w-2 h-2 rounded-full" style={{backgroundColor: '#800020'}}></div>
-                                <span className="text-sm text-gray-700">{feature}</span>
+                              <div
+                                key={featureIndex}
+                                className="flex items-center space-x-3"
+                              >
+                                <div
+                                  className="w-2 h-2 rounded-full"
+                                  style={{ backgroundColor: "#800020" }}
+                                ></div>
+                                <span className="text-sm text-gray-700">
+                                  {feature}
+                                </span>
                               </div>
                             ))}
                           </div>
-                          
+
                           {/* Learn More Button */}
                           <div className="mt-8 text-center">
-                            <button className="px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105" 
-                                    style={{backgroundColor: '#800020', color: 'white'}}>
+                            <button
+                              className="px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105"
+                              style={{
+                                backgroundColor: "#800020",
+                                color: "white",
+                              }}
+                            >
                               Learn More
                             </button>
                           </div>
@@ -657,24 +770,44 @@ const Index = () => {
             </div>
 
             {/* Navigation Controls */}
-            <button 
+            <button
               className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:shadow-xl transition-all duration-300 z-10"
-              onClick={() => scrollCarousel('left')}
+              onClick={() => scrollCarousel("left")}
             >
-              <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              <svg
+                className="w-6 h-6 text-gray-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M15 19l-7-7 7-7"
+                />
               </svg>
             </button>
-            
-            <button 
+
+            <button
               className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:shadow-xl transition-all duration-300 z-10"
-              onClick={() => scrollCarousel('right')}
+              onClick={() => scrollCarousel("right")}
             >
-              <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              <svg
+                className="w-6 h-6 text-gray-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
               </svg>
             </button>
-                    </div>
+          </div>
 
           {/* Carousel Indicators */}
           <div className="flex justify-center mt-12 space-x-3">
@@ -682,7 +815,9 @@ const Index = () => {
               <button
                 key={dot}
                 className="w-3 h-3 rounded-full transition-all duration-300"
-                style={{backgroundColor: dot === currentSlide ? '#800020' : '#E5E7EB'}}
+                style={{
+                  backgroundColor: dot === currentSlide ? "#800020" : "#E5E7EB",
+                }}
                 onClick={() => goToSlide(dot)}
               ></button>
             ))}
@@ -693,8 +828,10 @@ const Index = () => {
             <p className="text-lg text-gray-600 mb-6">
               Don't see your industry? We customize solutions for every sector.
             </p>
-            <button className="px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105" 
-                    style={{backgroundColor: '#800020', color: 'white'}}>
+            <button
+              className="px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105"
+              style={{ backgroundColor: "#800020", color: "white" }}
+            >
               Get Custom Solution
             </button>
           </div>
@@ -708,10 +845,11 @@ const Index = () => {
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Trusted by Industry{" "}
-              <span style={{color: '#800020'}}>Leaders</span>
+              <span style={{ color: "#800020" }}>Leaders</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We're proud to partner with leading organizations across various industries
+              We're proud to partner with leading organizations across various
+              industries
             </p>
           </div>
 
@@ -730,14 +868,19 @@ const Index = () => {
                   { name: "Adobe", logo: "Adobe" },
                   { name: "Netflix", logo: "Netflix" },
                 ].map((client, index) => (
-                  <div key={index} className="flex items-center justify-center h-16 w-32 opacity-60 hover:opacity-100 transition-opacity duration-300">
+                  <div
+                    key={index}
+                    className="flex items-center justify-center h-16 w-32 opacity-60 hover:opacity-100 transition-opacity duration-300"
+                  >
                     <div className="bg-gray-100 rounded-lg px-6 py-3 flex items-center justify-center w-full h-full">
-                      <span className="text-gray-700 font-semibold text-sm">{client.logo}</span>
+                      <span className="text-gray-700 font-semibold text-sm">
+                        {client.logo}
+                      </span>
                     </div>
                   </div>
                 ))}
               </div>
-              
+
               {/* Duplicate set for seamless loop */}
               <div className="flex items-center space-x-16 flex-shrink-0 ml-16">
                 {[
@@ -750,16 +893,20 @@ const Index = () => {
                   { name: "Adobe", logo: "Adobe" },
                   { name: "Netflix", logo: "Netflix" },
                 ].map((client, index) => (
-                  <div key={`duplicate-${index}`} className="flex items-center justify-center h-16 w-32 opacity-60 hover:opacity-100 transition-opacity duration-300">
+                  <div
+                    key={`duplicate-${index}`}
+                    className="flex items-center justify-center h-16 w-32 opacity-60 hover:opacity-100 transition-opacity duration-300"
+                  >
                     <div className="bg-gray-100 rounded-lg px-6 py-3 flex items-center justify-center w-full h-full">
-                      <span className="text-gray-700 font-semibold text-sm">{client.logo}</span>
+                      <span className="text-gray-700 font-semibold text-sm">
+                        {client.logo}
+                      </span>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
-                    </div>
-
+          </div>
 
           {/* Stats Section */}
           <div className="mt-20 bg-gradient-to-r from-gray-50 to-white rounded-2xl p-12">
@@ -768,10 +915,13 @@ const Index = () => {
                 { number: "500+", label: "Enterprise Clients" },
                 { number: "50+", label: "Global Partners" },
                 { number: "99.9%", label: "Client Satisfaction" },
-                { number: "24/7", label: "Partner Support" }
+                { number: "24/7", label: "Partner Support" },
               ].map((stat, index) => (
                 <div key={index} className="text-center">
-                  <div className="text-4xl md:text-5xl font-bold mb-2" style={{color: '#800020'}}>
+                  <div
+                    className="text-4xl md:text-5xl font-bold mb-2"
+                    style={{ color: "#800020" }}
+                  >
                     {stat.number}
                   </div>
                   <div className="text-gray-600 font-medium">{stat.label}</div>
@@ -796,59 +946,71 @@ const Index = () => {
           {/* Section Header */}
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              What Our{" "}
-              <span style={{color: '#800020'}}>Clients Say</span>
+              What Our <span style={{ color: "#800020" }}>Clients Say</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Hear from industry leaders who have transformed their businesses with our cloud solutions
+              Hear from industry leaders who have transformed their businesses
+              with our cloud solutions
             </p>
           </div>
 
           {/* Testimonials Carousel */}
           <div className="relative max-w-4xl mx-auto">
             <div className="overflow-hidden">
-              <div 
+              <div
                 className="flex transition-transform duration-500 ease-in-out"
-                style={{ transform: `translateX(-${currentTestimonial * 100}%)` }}
+                style={{
+                  transform: `translateX(-${currentTestimonial * 100}%)`,
+                }}
               >
                 {[
                   {
                     name: "Sarah Johnson",
                     company: "TechCorp Solutions",
-                    testimonial: "Krun Tech transformed our entire cloud infrastructure. Their expertise and 24/7 support have been invaluable to our growth. The migration was seamless and we've seen incredible results."
+                    testimonial:
+                      "Krun Tech transformed our entire cloud infrastructure. Their expertise and 24/7 support have been invaluable to our growth. The migration was seamless and we've seen incredible results.",
                   },
                   {
                     name: "Michael Chen",
                     company: "InnovateLabs",
-                    testimonial: "The migration to their cloud platform was seamless. We've seen 40% improvement in performance and significant cost savings. Their team is truly exceptional."
+                    testimonial:
+                      "The migration to their cloud platform was seamless. We've seen 40% improvement in performance and significant cost savings. Their team is truly exceptional.",
                   },
                   {
                     name: "Emily Rodriguez",
                     company: "Global Finance Inc",
-                    testimonial: "Outstanding security and compliance features. Krun Tech helped us meet all regulatory requirements while improving efficiency. Highly recommended for enterprise solutions."
+                    testimonial:
+                      "Outstanding security and compliance features. Krun Tech helped us meet all regulatory requirements while improving efficiency. Highly recommended for enterprise solutions.",
                   },
                   {
                     name: "David Thompson",
                     company: "StartupX",
-                    testimonial: "From day one, Krun Tech understood our needs. Their scalable solutions have grown with our business perfectly. The support team is always available when we need them."
+                    testimonial:
+                      "From day one, Krun Tech understood our needs. Their scalable solutions have grown with our business perfectly. The support team is always available when we need them.",
                   },
                   {
                     name: "Lisa Wang",
                     company: "ManufacturingPro",
-                    testimonial: "The IoT integration and predictive maintenance features have revolutionized our manufacturing processes. We've reduced downtime by 60% and improved overall efficiency."
+                    testimonial:
+                      "The IoT integration and predictive maintenance features have revolutionized our manufacturing processes. We've reduced downtime by 60% and improved overall efficiency.",
                   },
                   {
                     name: "James Wilson",
                     company: "EduTech Global",
-                    testimonial: "Perfect solution for our educational platform. The virtual classroom infrastructure handles thousands of students seamlessly. The scalability is impressive."
-                  }
+                    testimonial:
+                      "Perfect solution for our educational platform. The virtual classroom infrastructure handles thousands of students seamlessly. The scalability is impressive.",
+                  },
                 ].map((testimonial, index) => (
                   <div key={index} className="w-full flex-shrink-0 px-4">
                     <div className="bg-white rounded-2xl shadow-lg p-12 text-center border border-gray-100">
                       {/* Rating Stars */}
                       <div className="flex items-center justify-center mb-8">
                         {[...Array(5)].map((_, starIndex) => (
-                          <svg key={starIndex} className="w-6 h-6 text-yellow-400 fill-current mx-1" viewBox="0 0 20 20">
+                          <svg
+                            key={starIndex}
+                            className="w-6 h-6 text-yellow-400 fill-current mx-1"
+                            viewBox="0 0 20 20"
+                          >
                             <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                           </svg>
                         ))}
@@ -861,8 +1023,15 @@ const Index = () => {
 
                       {/* Client Info */}
                       <div className="border-t border-gray-200 pt-6">
-                        <div className="font-semibold text-lg text-gray-900 mb-1">{testimonial.name}</div>
-                        <div className="text-base font-medium" style={{color: '#800020'}}>{testimonial.company}</div>
+                        <div className="font-semibold text-lg text-gray-900 mb-1">
+                          {testimonial.name}
+                        </div>
+                        <div
+                          className="text-base font-medium"
+                          style={{ color: "#800020" }}
+                        >
+                          {testimonial.company}
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -871,27 +1040,47 @@ const Index = () => {
             </div>
 
             {/* Navigation Controls */}
-            <button 
+            <button
               className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:shadow-xl transition-all duration-300 z-10"
               onClick={() => {
                 setIsTestimonialAutoPlaying(false);
                 setCurrentTestimonial((prev) => (prev - 1 + 6) % 6);
               }}
             >
-              <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              <svg
+                className="w-6 h-6 text-gray-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M15 19l-7-7 7-7"
+                />
               </svg>
             </button>
-            
-            <button 
+
+            <button
               className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:shadow-xl transition-all duration-300 z-10"
               onClick={() => {
                 setIsTestimonialAutoPlaying(false);
                 setCurrentTestimonial((prev) => (prev + 1) % 6);
               }}
             >
-              <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              <svg
+                className="w-6 h-6 text-gray-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
               </svg>
             </button>
           </div>
@@ -902,7 +1091,10 @@ const Index = () => {
               <button
                 key={dot}
                 className="w-3 h-3 rounded-full transition-all duration-300"
-                style={{backgroundColor: dot === currentTestimonial ? '#800020' : '#E5E7EB'}}
+                style={{
+                  backgroundColor:
+                    dot === currentTestimonial ? "#800020" : "#E5E7EB",
+                }}
                 onClick={() => goToTestimonial(dot)}
               ></button>
             ))}
@@ -912,16 +1104,35 @@ const Index = () => {
           <div className="mt-20 bg-white rounded-2xl shadow-lg p-12">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
               <div>
-                <div className="text-4xl font-bold mb-2" style={{color: '#800020'}}>98%</div>
-                <div className="text-gray-600 font-medium">Client Satisfaction Rate</div>
+                <div
+                  className="text-4xl font-bold mb-2"
+                  style={{ color: "#800020" }}
+                >
+                  98%
+                </div>
+                <div className="text-gray-600 font-medium">
+                  Client Satisfaction Rate
+                </div>
               </div>
               <div>
-                <div className="text-4xl font-bold mb-2" style={{color: '#800020'}}>4.9/5</div>
+                <div
+                  className="text-4xl font-bold mb-2"
+                  style={{ color: "#800020" }}
+                >
+                  4.9/5
+                </div>
                 <div className="text-gray-600 font-medium">Average Rating</div>
               </div>
               <div>
-                <div className="text-4xl font-bold mb-2" style={{color: '#800020'}}>95%</div>
-                <div className="text-gray-600 font-medium">Would Recommend Us</div>
+                <div
+                  className="text-4xl font-bold mb-2"
+                  style={{ color: "#800020" }}
+                >
+                  95%
+                </div>
+                <div className="text-gray-600 font-medium">
+                  Would Recommend Us
+                </div>
               </div>
             </div>
           </div>

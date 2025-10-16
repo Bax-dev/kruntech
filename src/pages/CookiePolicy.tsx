@@ -86,7 +86,7 @@ const CookiePolicy = () => {
                   <CardTitle className="text-xl flex items-center">
                     {type.title}
                     {type.required && (
-                      <span className="ml-2 text-xs bg-red-100 text-red-600 px-2 py-1 rounded-full">
+                      <span className="ml-2 text-xs bg-[#800020]/10 text-[#800020] px-2 py-1 rounded-full">
                         Required
                       </span>
                     )}
