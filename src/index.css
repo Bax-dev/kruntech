@@ -172,4 +172,55 @@ All colors MUST be HSL.
   .animate-spin-slow {
     animation: spin-slow 20s linear infinite;
   }
+  
+  /* Slide in animations for credential badges */
+  @keyframes slide-in-left {
+    0% {
+      transform: translateX(-100px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slide-in-up {
+    0% {
+      transform: translateY(50px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slide-in-right {
+    0% {
+      transform: translateX(100px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  .animate-slide-in-left {
+    animation: slide-in-left 0.8s ease-out 0.2s both;
+  }
+  
+  .animate-slide-in-up {
+    animation: slide-in-up 0.8s ease-out 0.4s both;
+  }
+  
+  .animate-slide-in-right {
+    animation: slide-in-right 0.8s ease-out 0.6s both;
+  }
+  
+  /* Enhanced shadow for button hover */
+  .shadow-3xl {
+    box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.4);
+  }
 }

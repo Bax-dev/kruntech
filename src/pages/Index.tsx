@@ -21,6 +21,59 @@ import { Card, CardContent } from "@/components/ui/card";
 import Layout from "@/components/Layout";
 import { useState, useEffect } from "react";
 
+// Counter component for animated numbers
+const Counter = ({ end, duration = 2000, suffix = "" }: { end: number; duration?: number; suffix?: string }) => {
+  const [count, setCount] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !isVisible) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    const element = document.getElementById(`counter-${end}`);
+    if (element) {
+      observer.observe(element);
+    }
+
+    return () => {
+      if (element) {
+        observer.unobserve(element);
+      }
+    };
+  }, [isVisible, end]);
+
+  useEffect(() => {
+    if (!isVisible) return;
+
+    let startTime: number;
+    const animate = (currentTime: number) => {
+      if (!startTime) startTime = currentTime;
+      const progress = Math.min((currentTime - startTime) / duration, 1);
+      
+      const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+      setCount(Math.floor(easeOutQuart * end));
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
+    };
+
+    requestAnimationFrame(animate);
+  }, [isVisible, end, duration]);
+
+  return (
+    <span id={`counter-${end}`}>
+      {count}{suffix}
+    </span>
+  );
+};
+
 const Index = () => {
   const services = [
     {
@@ -122,55 +175,55 @@ const Index = () => {
 
   return (
     <Layout>
-      <section className="relative min-h-screen bg-gradient-to-br from-[#800020] via-[#a00030] to-[#800020] overflow-hidden">
+      <section className="relative min-h-screen bg-gradient-to-br from-slate-900 via-[#800020]/20 to-slate-800 overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-white/5 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-gray-400/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-white/3 rounded-full blur-3xl animate-pulse delay-2000"></div>
+          <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#800020]/15 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-indigo-500/8 rounded-full blur-3xl animate-pulse delay-2000"></div>
         </div>
 
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-32 left-1/4 w-4 h-4 bg-white/20 rotate-45 animate-bounce"></div>
-          <div className="absolute top-48 right-1/3 w-6 h-6 bg-gray-300/30 rounded-full animate-bounce delay-500"></div>
-          <div className="absolute bottom-32 left-1/3 w-3 h-3 bg-white/25 rotate-12 animate-bounce delay-1000"></div>
-          <div className="absolute bottom-48 right-1/4 w-5 h-5 bg-gray-400/30 rounded-full animate-bounce delay-1500"></div>
+          <div className="absolute top-32 left-1/4 w-4 h-4 bg-blue-400/30 rotate-45 animate-bounce"></div>
+          <div className="absolute top-48 right-1/3 w-6 h-6 bg-[#800020]/40 rounded-full animate-bounce delay-500"></div>
+          <div className="absolute bottom-32 left-1/3 w-3 h-3 bg-indigo-400/35 rotate-12 animate-bounce delay-1000"></div>
+          <div className="absolute bottom-48 right-1/4 w-5 h-5 bg-blue-300/40 rounded-full animate-bounce delay-1500"></div>
 
-          <div className="absolute top-20 right-20 w-32 h-32 border-2 border-white/10 rounded-full animate-spin-slow"></div>
-          <div className="absolute bottom-32 left-20 w-24 h-24 border-2 border-white/15 rounded-full animate-spin-slow delay-1000"></div>
-          <div className="absolute top-1/3 right-1/4 w-16 h-16 border border-white/20 rounded-full animate-pulse"></div>
-          <div className="absolute bottom-1/4 left-1/2 w-20 h-20 border border-white/10 rounded-full animate-pulse delay-500"></div>
+          <div className="absolute top-20 right-20 w-32 h-32 border-2 border-blue-400/20 rounded-full animate-spin-slow"></div>
+          <div className="absolute bottom-32 left-20 w-24 h-24 border-2 border-[#800020]/25 rounded-full animate-spin-slow delay-1000"></div>
+          <div className="absolute top-1/3 right-1/4 w-16 h-16 border border-indigo-400/30 rounded-full animate-pulse"></div>
+          <div className="absolute bottom-1/4 left-1/2 w-20 h-20 border border-[#800020]/20 rounded-full animate-pulse delay-500"></div>
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 relative z-10 flex items-center min-h-screen pt-24 pb-16 sm:pt-28 sm:pb-20">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center w-full">
             <div className="text-center lg:text-left space-y-6 sm:space-y-8">
               <div className="space-y-4">
-                <div className="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full border border-white/30 shadow-lg">
-                  <Cloud className="w-5 h-5 text-white mr-2" />
-                  <span className="text-white font-medium text-sm">
+                <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-500/20 to-[#800020]/20 backdrop-blur-sm rounded-full border border-blue-400/30 shadow-lg">
+                  <Cloud className="w-5 h-5 text-blue-300 mr-2" />
+                  <span className="text-blue-200 font-medium text-sm">
                     Cloud Computing Excellence
                   </span>
                 </div>
 
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight">
-                  Transform Your
-                  <span className="block text-white">Digital Future</span>
+                  <span className="animate-slide-in-left">Transform Your</span>
+                  <span className="block text-white animate-slide-in-right">Digital Future</span>
                 </h1>
 
-                <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                <p className="text-lg md:text-xl text-white/95 max-w-2xl mx-auto lg:mx-0 leading-relaxed animate-slide-in-up">
                   Scale your business with enterprise-grade cloud solutions that
                   deliver
-                  <span className="font-semibold text-white">
+                  <span className="font-semibold text-[#800020]">
                     {" "}
                     99.99% uptime
                   </span>
                   ,
-                  <span className="font-semibold text-white">
+                  <span className="font-semibold text-[#800020]">
                     {" "}
                     advanced security
                   </span>
                   , and
-                  <span className="font-semibold text-white">
+                  <span className="font-semibold text-[#800020]">
                     {" "}
                     seamless scalability
                   </span>
@@ -182,10 +235,10 @@ const Index = () => {
                 <Button
                   asChild
                   size="lg"
-                  className="text-white shadow-2xl transition-all duration-300 text-lg px-8 py-6"
+                  className="text-white shadow-2xl transition-all duration-300 text-lg px-8 py-6 animate-slide-in-up hover:scale-105 hover:shadow-3xl hover:brightness-110"
                   style={{
-                    background: "linear-gradient(to right, #800020, #a00030)",
-                    boxShadow: "0 25px 50px -12px rgba(128, 0, 32, 0.25)",
+                    background: "linear-gradient(to right, #1e40af, #800020, #3b82f6)",
+                    boxShadow: "0 25px 50px -12px rgba(30, 64, 175, 0.25)",
                   }}
                 >
                   <Link to="/contact">
@@ -195,16 +248,16 @@ const Index = () => {
                 </Button>
               </div>
 
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 pt-8">
-                <div className="flex items-center space-x-2 text-white/70">
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 pt-8 overflow-hidden">
+                <div className="flex items-center space-x-2 text-[#800020] animate-slide-in-left">
                   <Users className="w-5 h-5" />
                   <span className="text-sm">500+ Enterprise Clients</span>
                 </div>
-                <div className="flex items-center space-x-2 text-white/70">
+                <div className="flex items-center space-x-2 text-[#800020] animate-slide-in-up">
                   <Award className="w-5 h-5" />
                   <span className="text-sm">Industry Certified</span>
                 </div>
-                <div className="flex items-center space-x-2 text-white/70">
+                <div className="flex items-center space-x-2 text-[#800020] animate-slide-in-right">
                   <Shield className="w-5 h-5" />
                   <span className="text-sm">SOC 2 Compliant</span>
                 </div>
@@ -212,7 +265,7 @@ const Index = () => {
             </div>
 
             <div className="relative mt-8 lg:mt-0">
-              <div className="bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10 p-4 md:p-6 lg:p-8 shadow-2xl max-w-md mx-auto lg:max-w-none">
+              <div className="bg-[#800020]/90 backdrop-blur-xl rounded-3xl border border-[#800020]/30 p-4 md:p-6 lg:p-8 shadow-2xl max-w-md mx-auto lg:max-w-none">
                 <div className="space-y-6">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-3">
@@ -223,55 +276,55 @@ const Index = () => {
                       <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
                       <div className="w-3 h-3 bg-green-400 rounded-full"></div>
                     </div>
-                    <div className="text-white/60 text-sm">Cloud Dashboard</div>
+                    <div className="text-white/90 text-sm">Cloud Dashboard</div>
                   </div>
 
                   <div className="grid grid-cols-2 gap-3 md:gap-4">
-                    <div className="bg-gradient-to-br from-white/10 to-white/5 rounded-xl p-3 md:p-4 border border-white/10">
+                    <div className="bg-gradient-to-br from-white/20 to-white/10 rounded-xl p-3 md:p-4 border border-white/20">
                       <div className="text-xl md:text-2xl font-bold text-white mb-1">
-                        99.99%
+                        <Counter end={99.99} suffix="%" duration={2500} />
                       </div>
-                      <div className="text-white/70 text-xs md:text-sm">
+                      <div className="text-white/80 text-xs md:text-sm">
                         Uptime
                       </div>
                     </div>
-                    <div className="bg-gradient-to-br from-white/10 to-white/5 rounded-xl p-3 md:p-4 border border-white/10">
+                    <div className="bg-gradient-to-br from-white/20 to-white/10 rounded-xl p-3 md:p-4 border border-white/20">
                       <div className="text-xl md:text-2xl font-bold text-white mb-1">
                         24/7
                       </div>
-                      <div className="text-white/70 text-xs md:text-sm">
+                      <div className="text-white/80 text-xs md:text-sm">
                         Support
                       </div>
                     </div>
-                    <div className="bg-gradient-to-br from-white/10 to-white/5 rounded-xl p-3 md:p-4 border border-white/10">
+                    <div className="bg-gradient-to-br from-white/20 to-white/10 rounded-xl p-3 md:p-4 border border-white/20">
                       <div className="text-xl md:text-2xl font-bold text-white mb-1">
-                        500+
+                        <Counter end={500} suffix="+" duration={2000} />
                       </div>
-                      <div className="text-white/70 text-xs md:text-sm">
+                      <div className="text-white/80 text-xs md:text-sm">
                         Clients
                       </div>
                     </div>
-                    <div className="bg-gradient-to-br from-white/10 to-white/5 rounded-xl p-3 md:p-4 border border-white/10">
+                    <div className="bg-gradient-to-br from-white/20 to-white/10 rounded-xl p-3 md:p-4 border border-white/20">
                       <div className="text-xl md:text-2xl font-bold text-white mb-1">
-                        50+
+                        <Counter end={50} suffix="+" duration={1500} />
                       </div>
-                      <div className="text-white/70 text-xs md:text-sm">
+                      <div className="text-white/80 text-xs md:text-sm">
                         Countries
                       </div>
                     </div>
                   </div>
 
                   <div className="flex justify-center space-x-4 md:space-x-6 pt-4">
-                    <div className="w-10 h-10 md:w-12 md:h-12 bg-white/10 rounded-xl flex items-center justify-center border border-white/20">
+                    <div className="w-10 h-10 md:w-12 md:h-12 bg-white/20 rounded-xl flex items-center justify-center border border-white/30">
                       <Cloud className="w-5 h-5 md:w-6 md:h-6 text-white" />
                     </div>
-                    <div className="w-10 h-10 md:w-12 md:h-12 bg-white/10 rounded-xl flex items-center justify-center border border-white/20">
+                    <div className="w-10 h-10 md:w-12 md:h-12 bg-white/20 rounded-xl flex items-center justify-center border border-white/30">
                       <Server className="w-5 h-5 md:w-6 md:h-6 text-white" />
                     </div>
-                    <div className="w-10 h-10 md:w-12 md:h-12 bg-white/10 rounded-xl flex items-center justify-center border border-white/20">
+                    <div className="w-10 h-10 md:w-12 md:h-12 bg-white/20 rounded-xl flex items-center justify-center border border-white/30">
                       <Shield className="w-5 h-5 md:w-6 md:h-6 text-white" />
                     </div>
-                    <div className="w-10 h-10 md:w-12 md:h-12 bg-white/10 rounded-xl flex items-center justify-center border border-white/20">
+                    <div className="w-10 h-10 md:w-12 md:h-12 bg-white/20 rounded-xl flex items-center justify-center border border-white/30">
                       <Zap className="w-5 h-5 md:w-6 md:h-6 text-white" />
                     </div>
                   </div>
